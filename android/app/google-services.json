@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "67897154165",
+    "project_id": "foname-1b065",
+    "storage_bucket": "foname-1b065.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67897154165:android:ce16ab98552d35e1cf363c",
+        "android_client_info": {
+          "package_name": "com.example.payment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSin2JtMP2hn9Q85Zxz0WQ78hXNrSNAPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67897154165:android:c89099902aa0bee7cf363c",
+        "android_client_info": {
+          "package_name": "com.example.uname"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSin2JtMP2hn9Q85Zxz0WQ78hXNrSNAPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

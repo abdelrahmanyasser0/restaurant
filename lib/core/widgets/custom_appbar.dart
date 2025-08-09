@@ -4,19 +4,21 @@ import 'package:payment/core/widgets/custom_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   final String? title;
-  const CustomAppBar({super.key,required this.title});
+  final Widget? leading;
+  final List<Widget>? actions;
+
+  const CustomAppBar({super.key,required this.title,this.actions,this.leading});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColors.white,
-      title: Text(title!,style: AppTextStyles.appbar,),
-      centerTitle: true,
-      leading: IconButton(
-          onPressed: (){
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back,color: Colors.grey,)),
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0),
+      child: AppBar(
+        backgroundColor: AppColors.white,
+        title: Text(title!,style: AppTextStyles.large,),
+        leading: leading,
+        actions:actions,
+      ),
     );
   }
 

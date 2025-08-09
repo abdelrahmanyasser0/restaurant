@@ -1,6 +1,6 @@
 
 class AppRouter {
-  static const String profile = '/';
-  static const String addPayment = '/addPayment';
+  static const String menu = '/';
+  static const String profile = '/profile';
 
 }

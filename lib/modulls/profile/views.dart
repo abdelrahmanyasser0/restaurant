@@ -1,102 +1,71 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payment/core/constants/app_assets.dart';
 import 'package:payment/core/constants/app_colors.dart';
-import 'package:payment/core/constants/app_routers.dart';
 import 'package:payment/core/constants/app_strings.dart';
 import 'package:payment/core/widgets/custom_appbar.dart';
-import 'package:payment/core/widgets/custom_text.dart';
-import 'package:payment/modulls/profile/controllers.dart';
+import 'package:payment/modulls/profile/widgets/menu_items.dart';
+import 'package:payment/modulls/profile/widgets/quick_actions.dart';
+import 'package:payment/modulls/profile/widgets/swich_row.dart';
+import 'package:payment/modulls/profile/widgets/user_info.dart';
 
-import '../../core/widgets/custom_button.dart';
+import '../../core/widgets/custom_divider.dart';
+import 'controllers.dart';
 
-class ProfileView extends GetView<PaymentController> {
-  ProfileView({super.key});
+class Profile extends GetView<ProfileController> {
+  const Profile({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: CustomAppBar(title: AppStrings.paymentMethodTitle),
-      body: Obx(() {
-        final List<Map<String, String>> totalList = [
-          ...controller.cards.map((card) => {
-            'asset': AppAssets.creditCard,
-            'text': '*** *** *** ${card.cardNumber.substring(card.cardNumber.length - 2)}',
-          }),
-          ...controller.staticPayments
-
-        ];
-
-        return totalList.isNotEmpty?
-        ListView.builder(
-          itemCount: totalList.length,
-          itemBuilder: (context, index) {
-            return Obx(()=>buildCardSection(
-              totalList[index]['asset']!,
-              totalList[index]['text']!,
-              index,
-            ));
-          },
-        ):
-        Center(
-          child: CircularProgressIndicator(color: AppColors.salmon,),
-        );
-      }),
-
-      bottomNavigationBar: CustomButton(
-        text: AppStrings.addNewCardButton,
-        onPressed: ()async{
-         final result=await Get.toNamed(AppRouter.addPayment);
-         if(result==true){
-           controller.fetchCards();
-         }
-        },
+      backgroundColor: Colors.white,
+      appBar: CustomAppBar(
+          leading: IconButton(
+            icon: CircleAvatar(
+                radius: 20,
+                backgroundColor: AppColors.mediumGray,
+                child: const Icon(
+                  Icons.arrow_back_ios_sharp, color :AppColors.black,size: 20, weight: 800,)),
+            color: Colors.black,
+            onPressed: () => Get.back(),
+          ),
+          title: AppStrings.profileAppbarTitle
       ),
-    );
-  }
-
-  Widget buildCardSection(String asset, String text, int index) {
-    return Column(
-      children: [
-
-        SizedBox(height: 30),
-        Row(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
-            const SizedBox(width: 10),
-            Image.asset(asset,
-                width: 50,
-                height: 55,
-                fit: BoxFit.cover,
-                color: AppColors.salmon),
-            const SizedBox(width: 15),
-            Text(text, style: AppTextStyles.body),
-            const Spacer(),
-            Radio<int>(
-              value: index,
-              groupValue: controller.stat.value,
-              onChanged: (value) {
-                controller.togglePayment(value);
-              },
-              activeColor: AppColors.salmon,
-              fillColor: MaterialStateProperty.resolveWith<Color>((states) {
-                if (states.contains(MaterialState.selected)) {
-                  return AppColors.salmon;
-                }
-                return AppColors.salmon.withOpacity(0.4);
-              }),
-            ),
+            // Header card
+            CustomDivider(height: 6),
+
+            UserInfo(controller: controller),
+            const SizedBox(height: 16),
+
+            // Quick actions
+            QuickActions(),
+
+            const SizedBox(height: 8),
+            const CustomDivider(height: 11),
+            MenuItems(),
+
+            CustomDivider(height: 11),
+
+            const SizedBox(height: 8),
+
+            SwitchRow(controller: controller),
+            const SizedBox(height: 12),
           ],
         ),
-        const SizedBox(height: 20),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Divider(
-            color: AppColors.salmon.withOpacity(0.4),
-            height: 1,
-          ),
-        ),
-      ],
+      ),
+
     );
   }
+
+
 }
+
+
+
+
+
+
+

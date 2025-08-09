@@ -3,10 +3,10 @@ import '../../data/repositories/menu_repo.dart';
 import 'controllers.dart';
 
 
-class ProfileBinding extends Bindings {
+class MenuBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<IMenuRepository>(() => MenuRepository());
-    Get.lazyPut(() => ProfileController(Get.find()));
+    Get.lazyPut(() => MenuViewController(Get.find()));
   }
 }

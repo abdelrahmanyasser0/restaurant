@@ -8,10 +8,14 @@ class AppStrings{
   static const String saveCardButton = 'Save Card';
 
   // Payment Method Page
-  static const String paymentMethodTitle = 'Payment Method';
-  static const String maskedCard = '••• ••• ••• 67';
-  static const String applePay = 'Apple Play';
-  static const String paypal = 'Paypal';
-  static const String cash = 'Cash';
-  static const String addNewCardButton = 'Add New Card';
+  static const String menuAppbarTitle = 'EXPLORE MENU';
+  static const String profileAppbarTitle = 'PROFILE';
+
+
+
+
+  //api endpoints
+  static const String getProducts='api/Restaurant/items';
+  static const String getCategories='api/Restaurant';
+
 }

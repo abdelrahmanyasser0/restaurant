@@ -6,9 +6,66 @@ class AppTextStyles {
 
   static const TextStyle label = TextStyle(
     fontSize: 14,
-    fontWeight: FontWeight.w600,
-    color: AppColors.orangeDark,
+    fontWeight: FontWeight.w400,
+    color: AppColors.grey,
+
   );
+
+
+  static const TextStyle large = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+
+  );
+
+  static const TextStyle headline = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+
+  );
+
+  static const TextStyle mediumBlack = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.black,
+
+  );
+
+  static const TextStyle mediumBlack16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColors.black,
+
+  );
+
+  static const TextStyle bodyGrey = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.grey,
+
+  );
+
+  static const TextStyle bodyOrange = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.orange,
+
+  );
+  static const TextStyle bodyGrey12 = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: AppColors.grey,
+
+  );
+
+  static const TextStyle red = TextStyle(
+    fontSize: 17,
+    fontWeight: FontWeight.w700,
+    color: AppColors.red,
+  );
+
 
   static const TextStyle input = TextStyle(
     fontSize: 13,
@@ -19,8 +76,8 @@ class AppTextStyles {
 
 
   static const TextStyle body = TextStyle(
-    fontSize: 15,
-    fontWeight: FontWeight.w500,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
     color: AppColors.black,
   );
 
@@ -31,9 +88,7 @@ class AppTextStyles {
     color: Colors.white,
   );
 
-  static const TextStyle appbar = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w700,
-    color: AppColors.salmon,
-  );
+
+
+
 }

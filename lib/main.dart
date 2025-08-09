@@ -1,24 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
-import 'package:payment/core/constants/app_routers.dart';
+import 'package:payment/core/constants/app_colors.dart';
 import 'package:payment/routes/appRouter.dart';
 
-import 'core/services/firebase_options.dart';
-
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute:RouterManager.profile ,
+      initialRoute:RouterManager.menu ,
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: AppColors.white,
+          scrolledUnderElevation: 0,
+
+        ),
+        cardTheme: CardTheme(
+          color: AppColors.white,
+        ),
+        iconTheme: IconThemeData(color: Colors.black)
+      ),
       getPages: RouterManager.routes,
     );
   }
